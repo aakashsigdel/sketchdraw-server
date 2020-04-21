@@ -41,6 +41,23 @@ function handleDisconnect() {}
 
 function handleJoin(name: string) {
   const userIndex = game.users.findIndex((u) => u.name === name);
+
+  if(userIndex === -1 && game.startedAt === null) {
+    //User not in game, game not started
+  }
+
+  if(userIndex > 1 && game.startedAt === null) {
+    // Old user disconnected from lobby
+  }
+
+  if(userIndex === -1 && game.startedAt !== null) {
+    //User not in game, game started
+  }
+
+  if(userIndex > -1 && game.startedAt !== null) {
+    //User entered the game and got disconnected
+  }
+
 }
 
 function handleCreate() {}
